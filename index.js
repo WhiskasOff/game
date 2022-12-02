@@ -85,14 +85,14 @@ work.onclick = function() {
 
 bb.onclick = function() {
 	if (hero.status == "sick")
-		hero.health = hero.health + 1;
+		hero.health = hero.health + 0.2;
 		last.textContent = hero.name + " скушал ягодку и теперь у него " + hero.health + " здоровья!";
 		refresh();
 	};
 
 heal.onclick = function() {
 	if (hero.status == "sick")
-		hero.health = hero.health + 200;
+		hero.health = hero.health + 1;
 		last.textContent = hero.name + " приложил подорожник и теперь у него " + hero.health + " здоровья!";
 		refresh();
 	};
