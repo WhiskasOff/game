@@ -5,38 +5,52 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Game</title>
 	<style>
-		*{
-			box-sizing: border-box;
+
+		body{
+			background-image: url(https://oir.mobi/uploads/posts/2021-03/1616439576_50-p-detskii-fon-oblaka-56.png);
 		}
-		div{
-			border: 2px solid black;
-			padding: 30px;
+
+		.homeG{
+			cursor: not-allowed;
 		}
+
+		.last_change{
+			font-size: 35px;
+			color: #1e2325;
+		}
+
 		.box{
 			display: flex;
 			justify-content: space-between;
-			background: #AFEEEE;
+			box-sizing: border-box;
+			color: #1e2325;
+
 		}
 		.box_data, .box_info{
 			width: 48%;
+			box-sizing: border-box;
 		}
 		.box_img{
-			background-image: url(https://faktrus.ru/wp-content/uploads/srednevekoviy-gorod.jpg);
+			background-image: url();
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: 50% 50%;
 			width: 100%;
 			height: 600px;
+			box-sizing: border-box;
 
 		}
 		.box_info{
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+			box-sizing: border-box;
 		}
 		.box_last{
+			color: #1e2325;
 			height: 200px;
-
+			box-sizing: border-box;
+			font-size: 28px;
 		}
 
 		.action_box{
@@ -44,22 +58,52 @@
 			justify-content: space-between;
 			padding: 0;
 			border: none;
+			box-sizing: border-box;
 		}
+
+		button{
+		border-radius: 10px;
+  		border: none;
+  		padding: 10px 10px 14px 10px;
+  		color: #1e2325;
+  		border-radius: 10px;
+  		font-size: 1.2em;
+  		font-weight: 200;
+  		transition: all 0.2s;
+  		margin: 5px;
+  		border-bottom: 0px solid #eee;
+  		cursor:pointer;
+
+		}
+		button.button3:active{
+		  transform: scaleX(0.9) translateY(4px);
+		}
+		button.button3.green{
+		  background: #82CA9D;
+		}
+		button:not(:active){
+		  box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.18) inset;
+		}		
+
+
+
 
 	</style>
 </head>
 <body>
+	
+
 	<div class="box">
 		<div class="box_data">
-			<h1>Привет на собеседовании</h1>
+			<h1>Мудрая игра</h1>
 			<h2>Имя работяги:</h2>
 			<p id="name"></p>		
 			<h2>Здоровье</h2>
 			<p id="health"></p>		
-			<h2>Урон</h2>
+<!-- 			<h2>Урон</h2>
 			<p id="damage"></p>		
 			<h2>Защита</h2>
-			<p id="armor"></p>		
+			<p id="armor"></p> -->		
 			<h2>Статус</h2>
 			<p id="status"></p>
 			<h2>Деньги</h2>
@@ -71,19 +115,19 @@
 
 			<div class="inCity">
 				<div class="action_box">
-					<button id="shop">Сходить в магазин</button>
 					<button id="hospital">Посетить больницу</button>
-					<button id="home">Пойти домой</button>
+					<button class="homeG", id="home">Пойти домой</button>
 					<button id="ocity">Покинуть город</button>
+					<button id="work">Пойти работать</button>
 				</div>
 				
 			</div>
 
 			<div class="out">
 				<div class="action_box">
-					<button id="shop">Собрать ягоды</button>
-					<button id="hospital">приложить подорожник</button>
-					<button id="home">Пойти к медведю в берлогу</button>
+					<button id="bb">Собрать ягоды</button>
+					<button id="heal">приложить подорожник</button>
+					<button id="bear">Пойти к медведю в берлогу</button>
 					<button id="insity">Вернуться в город</button>
 				</div>
 			</div>
@@ -91,21 +135,17 @@
 		<div class="box_info">
 			<div class="box_img"></div>
 			<br>
+			<h1 class="last_change">Последние действие:</h1>
 			<div class="box_last">
 			</div>
 		</div>
 	</div>
 
 
-
-	
-
-
-
-
-
-
-
 	<script src="index.js"></script>
+
+
+
+
 </body>
 </html>

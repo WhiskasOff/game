@@ -9,18 +9,10 @@ let hero = {
 	money: 200,
 	gps: "city",
 };
-/*let answer = confirm("Вам попался на собеседоовонии гоблин! Заскамить ли его?");
-if(answer){
-	hero.health = hero.health - 80;
-	alert("Вы подрались с гоблином! Ваше здоровье: " + hero.health);
-}else{
-	alert("Вы избежали драки.");
-}
-*/
 let name = document.getElementById("name"),
 	health = document.getElementById("health"),
-	damage = document.getElementById("damage"),
-	armor = document.getElementById("armor"),
+	// damage = document.getElementById("damage"),
+	// armor = document.getElementById("armor"),
 	status = document.getElementById("status"),
 	money = document.getElementById("money"),
 	gps = document.getElementById("gps"),
@@ -28,9 +20,14 @@ let name = document.getElementById("name"),
 	hospital = document.getElementById("hospital"),
 	home = document.getElementById("home"),
 	ocity = document.getElementById("ocity"),
+	work = document.getElementById("work"),
 	insity = document.getElementById("insity"),
-	last = document.querySelector(".box_last")
-	img = document.querySelector(".box_img")
+	last = document.querySelector(".box_last"),
+	img = document.querySelector(".box_img"),
+	bb = document.getElementById("bb"),
+	heal = document.getElementById("heal"),
+	bear = document.getElementById("bear")
+
 
 
 
@@ -39,8 +36,8 @@ let name = document.getElementById("name"),
 function refresh() {
 	name.textContent = hero.name;
 	health.textContent = hero.health;
-	damage.textContent = hero.damage;
-	armor.textContent = hero.armor;
+	// damage.textContent = hero.damage;
+	// armor.textContent = hero.armor;
 	status.textContent = hero.status;
 	money.textContent = hero.money;
 	gps.textContent = hero.gps;
@@ -48,19 +45,15 @@ function refresh() {
 	if (hero.gps == "city") {
 		document.querySelector(".inCity").style.display = "block";
 		document.querySelector(".out").style.display = "none";
-		img.style.backgroundImage = "url(https://faktrus.ru/wp-content/uploads/srednevekoviy-gorod.jpg)";
+		// img.style.backgroundImage = "url(https://faktrus.ru/wp-content/uploads/srednevekoviy-gorod.jpg)";
 	}else{
 		document.querySelector(".inCity").style.display = "none";
 		document.querySelector(".out").style.display = "block";
-		img.style.backgroundImage = "url(https://i.pinimg.com/originals/dd/c0/eb/ddc0ebe22c517886c098c1dac5cb6972.jpg)";
+		// img.style.backgroundImage = "url(https://i.pinimg.com/originals/dd/c0/eb/ddc0ebe22c517886c098c1dac5cb6972.jpg)";
 	};
-
-	if (hero.money == 0) {
-	hero.status = "DEAD";
-	last.textContent = hero.name + " был казнён из-за того, что у него закончились деньги. Слава Арстотцке!";
-	window.location.href = "https://whiskasoff.github.io/game/astrotzka_kill.html"
-	refresh();
-};
+	if (hero.money > 1000000 && hero.health > 200) {
+		last.textContent = "Поздравляю! Вы прошли игру так-как у вас более 1млн на балансе и ваше здоровье привышает 200 единиц! Чтобы начать заново - обновите страницу!"
+	};
 };
 
 refresh();
@@ -79,8 +72,35 @@ insity.onclick = function() {
 hospital.onclick = function() {
 	if (hero.money > 49 && hero.status == "sick"){
 		hero.money = hero.money - 50;
-		
+		hero.status = "healthy";
 		last.textContent = hero.name + " вылечился ";
+		refresh();
+	};
+work.onclick = function() {
+	if (hero.status == "healthy")
+		hero.money = hero.money + 0.5;
+		last.textContent = hero.name + " хорошо поработал и теперь у него " + hero.money + " рублей!";
+		refresh();
+	};
+
+bb.onclick = function() {
+	if (hero.status == "sick")
+		hero.health = hero.health + 1;
+		last.textContent = hero.name + " скушал ягодку и теперь у него " + hero.health + " здоровья!";
+		refresh();
+	};
+
+heal.onclick = function() {
+	if (hero.status == "sick")
+		hero.health = hero.health + 200;
+		last.textContent = hero.name + " приложил подорожник и теперь у него " + hero.health + " здоровья!";
+		refresh();
+	};
+
+bear.onclick = function() {
+	if (hero.status == "sick")
+		hero.health = hero.health - 90;
+		last.textContent = hero.name + ", медведь укусил вас до кости и теперь у вас " + hero.health + " здоровья!";
 		refresh();
 	};
 };
