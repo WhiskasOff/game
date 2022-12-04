@@ -8,6 +8,7 @@
 
 		body{
 			background-image: url(https://oir.mobi/uploads/posts/2021-03/1616439576_50-p-detskii-fon-oblaka-56.png);
+			margin: 0;
 		}
 
 		.homeG{
@@ -85,7 +86,49 @@
 		  box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.18) inset;
 		}		
 
-
+		@media(max-width:  1200px) {
+			.box_data{
+				text-align: center;
+			}
+		}
+		@media(max-width:  800px) {
+			.box{
+				flex-direction: column-reverse;
+			}
+			.box_img{
+				height: 5px;
+			}
+			.box_info{
+				width: 100%
+			}
+			.box_last{
+				max-height: 120px;
+				border-top: 2px solid black;
+				border-bottom: 2px solid black;
+				background-color: rgba(0, 0, 0, 0.8);
+				color:  white;
+				display: flex;
+				padding-right: 20px;
+				padding-left: 20px;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				font-size: 18px;
+			}
+			.box_data{
+				width: 100%;
+			}
+			button{
+				padding: 5px 5px 8px 5px;
+				width: 45%;
+			}
+			.action_box{
+				flex-wrap: wrap;
+			}
+			.last_change{
+				text-align: center;
+			}
+		}
 
 
 	</style>
@@ -95,7 +138,7 @@
 
 	<div class="box">
 		<div class="box_data">
-			<h1>Мудрая игра</h1>
+<!-- 			<h1>Мудрая игра</h1> -->
 			<h2>Имя работяги:</h2>
 			<p id="name"></p>		
 			<h2>Здоровье</h2>
